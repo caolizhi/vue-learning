@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <div id = "app">
+        <h2 v-for="item in 2">我是二级标题</h2>
+        <h1>遍历数组</h1>
+        <ul>
+            <li v-for="(item , index) in attr">{{ item }} --- {{ index }}</li>
+        </ul>
+        <table>
+            <tr v-for="row in 9">
+                <td v-for="col in 9" v-show="row >= col">{{ row * col }}</td>
+            </tr>
+        </table>
+        <h2>{{hobby}}</h2>
+        <p><input v-model="hobby" type="text"><button @click="add()">点击我</button></p>
+        <ul>
+            <li v-for="item in attr">{{item}}</li>
+        </ul>
+    </div>
+    
+</body>
+</html>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            attr: ["c", "s", "w"],
+            hobby: ""
+        },
+        methods: {
+            add() {
+                vm.attr.push(this.hobby),
+                vm.hobby = ""
+            }
+        },
+    })
+</script>

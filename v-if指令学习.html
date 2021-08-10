@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+    <script src="./vue.js"></script>
+</head>
+<body>
+    <!-- v-if 直接把节点树上的节点给移除掉了，不存在该节点了 -->
+    <div id="app">
+        <h1>你的性别是什么呀</h1>
+        <ul>
+            <li v-if="'男' == sex">男</li>
+            <li v-else-if="'女' == sex">女</li>
+            <li v-else>未知</li>
+        </ul>
+    </div>
+</html>
+
+<script>
+    var vm = new Vue({
+        el: "#app",
+        data: {
+            sex: "女"
+        }
+    })
+</script>
